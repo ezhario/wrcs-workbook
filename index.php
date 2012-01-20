@@ -23,7 +23,7 @@
 							</select><br>
 							Пароль:
 						<input type="password" width="10" name="pass">
-						<input type="submit" value="Вход"></td>
+						<input type="submit" value="Вход">
 				</form>
 		</body>
 </html>
