@@ -34,13 +34,13 @@
 							};
 						?>
 						ФИО:<br>
-						<INPUT TYPE="text" NAME="FIO" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[1] ?>">
-						Паспортные данные:<br>
-						<INPUT TYPE="text" NAME="Pasport" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[2] ?>">
-						Адрес:<br>
-						<INPUT TYPE="text" NAME="Addr" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[3] ?>">
-						Индекс:<br>
-						<INPUT TYPE="text" NAME="Index" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[4] ?>">
+						<INPUT TYPE="text" NAME="fio" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[1] ?>">
+						Логин:<br>
+						<INPUT TYPE="text" NAME="login" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[2] ?>">
+						Пароль:<br>
+						<INPUT type="password" NAME="passwd" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[3] ?>">
+						Роль:<br>
+						<INPUT TYPE="text" NAME="role_id" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[4] ?>">
 						<?php
 							if ($id == 0) {
 								echo '<input type="submit" value="Добавить сотрудника">';
@@ -53,6 +53,11 @@
 				</tr>
 			</table>
 			</form>
+<?php
+	} else {
+		echo '<meta http-equiv="refresh"; content="0; url=index.php">';
+	};
+?>
 
 		</body>
 </html>
