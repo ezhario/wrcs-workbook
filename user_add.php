@@ -12,6 +12,14 @@
 	  return false;
 	  }
 	}
+	function showPwd() {
+		var pwd = document.getElementById("switcher").checked;
+		if (pwd == true) {
+			document.getElementById("pwd").type = "text";
+		} else {
+			document.getElementById("pwd").type = "password";
+		}
+	}
 </script>
 
 </head>
@@ -33,14 +41,15 @@
 								echo '<h2>Редактирование данных сотрудника</h2>';
 							};
 						?>
-						ФИО:<br>
-						<INPUT TYPE="text" NAME="fio" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[1] ?>">
+						ФИО:<br />
+						<input type="text" name="fio" size="30" maxlength="100" value="<?php echo $usr[1] ?>" /><br />
 						Логин:<br>
-						<INPUT TYPE="text" NAME="login" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[2] ?>">
-						Пароль:<br>
-						<INPUT type="password" NAME="passwd" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[3] ?>">
+						<input type="text" name="login" size="30" maxlength="100" value="<?php echo $usr[2] ?>" /><br />
+						Пароль: <input type="checkbox" id="switcher" onclick="showPwd();" /> Показать/скрыть пароль<br>
+						<input type="password" name="passwd" id="pwd" size="30" maxlength="100" value="<?php echo $usr[3] ?>" /><br />
+                        
 						Роль:<br>
-						<INPUT TYPE="text" NAME="role_id" SIZE="30" MAXLENGTH="100" value="<?php echo $usr[4] ?>">
+						<input type="text" name="role_id" size="30" maxlength="100" value="<?php echo $usr[4] ?>" /><br />
 						<?php
 							if ($id == 0) {
 								echo '<input type="submit" value="Добавить сотрудника">';

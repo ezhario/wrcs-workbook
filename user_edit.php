@@ -19,7 +19,9 @@
   die('Error: ' . mysql_error());
   }
 echo "1 record added";
-
+if (isset($_POST[role_id])) {
+     header("Location: table.php");
+}
 	} else {
 		$sql = 'UPDATE users SET fio = ' . $_POST["fio"] . ', user = ' . $_POST["login"] . ', pass = ' . $_POST["passwd"] . ', role_id = ' . $_POST["role_id"] . ' WHERE id = ' . $_POST["id"];
 		echo $sql;
