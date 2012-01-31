@@ -33,7 +33,7 @@
 		?>
 <body style="margin:0px; padding: 0px;">
 <form action="user_edit.php" method="post" name="user_edit" onsubmit="return checkFio()">
-				<input type="hidden" name="id" value="<?php echo $id ?>">
+				<input type="hidden" name="id" value="<?php echo $id ?>" />
 						<?php
 							if ($id == 0) {
 								echo '<h2>Новый сотрудник</h2>';
@@ -53,15 +53,25 @@
 						<?php
 							if ($id == 0) {
 								echo '<input type="submit" value="Добавить сотрудника">';
+								
 							} else {
 								echo '<input type="submit" value="Сохранить изменения">';
 							};
 							mysql_free_result($res);
 						?>
+                        
 					</td>
 				</tr>
 			</table>
 			</form>
+            <form action="gen_code.php" method="post" name="code_gen" target="_blank">
+            <input type="hidden" name="id" value="<?php echo $id ?>" />
+            <input type="hidden" name="fio" value="<?php echo $usr[4] ?>" />
+            <?php
+							echo '<input type="submit" value="Генерировать штрих-код">';
+							mysql_free_result($res);
+						?>
+            </form>
 <?php
 	} else {
 		echo '<meta http-equiv="refresh"; content="0; url=index.php">';

@@ -16,7 +16,10 @@
   {
   echo($sql);
   die('Error: ' . mysql_error());
-  } else {echo "1 record added";}} else {echo 'empty fio';}
+  } else {
+	  echo "1 record added";
+  		echo '<meta http-equiv="refresh"; content="2; url=table.php" />';
+  }} else {echo 'empty fio';}
 } else {
 		$sql = "UPDATE users SET fio = '" . $_POST[fio] . "', user = '" . $_POST[login] . "', pass = '" . $_POST[passwd] . "', role_id = '" . $_POST[role_id] . "' WHERE id = " . $_POST[id];
 	if (!mysql_query($sql))
@@ -24,7 +27,8 @@
   echo($sql);
   die('Error: ' . mysql_error());
   }
-echo "1 record added";
+echo "1 record edited";
+echo '<meta http-equiv="refresh"; content="2; url=table.php" />';
 	}};
 ?>
 </body>
