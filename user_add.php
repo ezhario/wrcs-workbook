@@ -30,26 +30,26 @@
 		$sql = 'SELECT * FROM users where id = ' . $id;
 		$res = mysql_query($sql);
 		$usr = mysql_fetch_array($res, MYSQL_NUM);
-?>
+		?>
 <body style="margin:0px; padding: 0px;">
 <form action="user_edit.php" method="post" name="user_edit" onsubmit="return checkFio()">
 				<input type="hidden" name="id" value="<?php echo $id ?>">
 						<?php
-							if ($Id == 0) {
+							if ($id == 0) {
 								echo '<h2>Новый сотрудник</h2>';
 							} else {
 								echo '<h2>Редактирование данных сотрудника</h2>';
 							};
 						?>
 						ФИО:<br />
-						<input type="text" name="fio" size="30" maxlength="100" value="<?php echo $usr[1] ?>" /><br />
+						<input type="text" name="fio" size="30" maxlength="100" value="<?php echo $usr[4] ?>" /><br />
 						Логин:<br>
-						<input type="text" name="login" size="30" maxlength="100" value="<?php echo $usr[2] ?>" /><br />
+						<input type="text" name="login" size="30" maxlength="100" value="<?php echo $usr[1] ?>" /><br />
 						Пароль: <input type="checkbox" id="switcher" onclick="showPwd();" /> Показать/скрыть пароль<br>
-						<input type="password" name="passwd" id="pwd" size="30" maxlength="100" value="<?php echo $usr[3] ?>" /><br />
+						<input type="password" name="passwd" id="pwd" size="30" maxlength="100" value="<?php echo $usr[2] ?>" /><br />
                         
 						Роль:<br>
-						<input type="text" name="role_id" size="30" maxlength="100" value="<?php echo $usr[4] ?>" /><br />
+						<input type="text" name="role_id" size="30" maxlength="100" value="<?php echo $usr[3] ?>" /><br />
 						<?php
 							if ($id == 0) {
 								echo '<input type="submit" value="Добавить сотрудника">';

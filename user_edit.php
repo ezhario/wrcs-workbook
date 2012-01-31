@@ -11,29 +11,21 @@
 		echo 'Вам запрещено выполнять это действие';
 		echo '<meta http-equiv="refresh"; content="2; url=table.php" />';
 		} else {
-	if ($_POST['id'] == 0) {
-		$sql = "INSERT INTO users (fio, user, pass, role_id) VALUES ('" . $_POST[fio] . "', '" . $_POST[login] . "', '" . $_POST[passwd] . "', '" . $_POST[role_id] . "')";
-		if (!mysql_query($sql))
+			if ($_POST['id'] == 0) {$sql = "INSERT INTO users (fio, user, pass, role_id) VALUES ('" . $_POST[fio] . "', '" . $_POST[login] . "', '" . $_POST[passwd] . "', '" . $_POST[role_id] . "')";
+			if (isset($_POST['fio'])) {if (!mysql_query($sql))
   {
+  echo($sql);
+  die('Error: ' . mysql_error());
+  } else {echo "1 record added";}} else {echo 'empty fio';}
+} else {
+		$sql = "UPDATE users SET fio = '" . $_POST[fio] . "', user = '" . $_POST[login] . "', pass = '" . $_POST[passwd] . "', role_id = '" . $_POST[role_id] . "' WHERE id = " . $_POST[id];
+	if (!mysql_query($sql))
+  {
+  echo($sql);
   die('Error: ' . mysql_error());
   }
 echo "1 record added";
-if (isset($_POST[role_id])) {
-     header("Location: table.php");
-}
-	} else {
-		$sql = 'UPDATE users SET fio = ' . $_POST["fio"] . ', user = ' . $_POST["login"] . ', pass = ' . $_POST["passwd"] . ', role_id = ' . $_POST["role_id"] . ' WHERE id = ' . $_POST["id"];
-		echo $sql;
-	};
-	};
-//	echo '<meta http-equiv="refresh"; content="0; url=table.php" />';
-	//Новый пользователь
-//		$sql = 'INSERT INTO users (fio, user, pass, role_id) VALUES (' . $_POST["fio"] . ', ' . $_POST["login"] . ', ' . $_POST["passwd"] . ', ' . $_POST["role_id"] . ')';
-	//	mysql_query($sql);
-	
-	//Редактирование существующего пользователя
-//		$sql = 'UPDATE users SET fio = ' . $_POST["fio"] . ', user = ' . $_POST["login"] . ', pass = ' . $_POST["passwd"] . ', role_id = ' . $_POST["role_id"] . ' WHERE id = ' . $_POST["id"];
-	//	mysql_query($sql);
+	}};
 ?>
 </body>
 </html>
