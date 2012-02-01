@@ -68,8 +68,10 @@
             <input type="hidden" name="id" value="<?php echo $id ?>" />
             <input type="hidden" name="fio" value="<?php echo $usr[4] ?>" />
             <?php
+			if ($id == 0) {echo '';} else {
 							echo '<input type="submit" value="Генерировать штрих-код">';
 							mysql_free_result($res);
+			}
 						?>
             </form>
 <?php
